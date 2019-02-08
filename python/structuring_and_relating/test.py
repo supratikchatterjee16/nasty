@@ -51,9 +51,9 @@ import importlib
 #from stats.learning import classifier_util as learnutil
 import webpage_util as webutil
 import sentence_util as textutil
-import analysis.learning.classifier_util as learnutil
+import analysis.learning as learnutil
 arr = []
 for element in webutil.get_sentences("https://www.bbc.com/news/world-latin-america-46997555"):
 	arr += textutil.extract_nouns_improper(element)
-learnutil.classify_set(arr,'political')
+learnutil.classifier_util.classify_set(arr,'political')
 

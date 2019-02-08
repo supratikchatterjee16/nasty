@@ -1,16 +1,17 @@
 import re
 import csv
+import csv_util
 
 classifiers = ['political','technical','opinion','sports','market','crime','art','business']
 def classify_word(word, classification):
 	lst = []
+	csvobj = CSV()
 	if classification not in classifiers:
 		raise ValueError('The classification was not found. Possible classifiers : ',classifiers)
 	try:
-		with open(classification+'.csv', 'r') as csvfile:
-			csvr = csv.reader(csvfile)
-			for row in csvr:
-				lst += row
+		csvobj.open(classifier+'.csv')
+		if word not in csvobj.data:
+			csv.add(word)
 	except FileNotFoundError:
 		open(classification+'.csv','w+')
 	except AttributeError:

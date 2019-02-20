@@ -1,0 +1,13 @@
+{"Mukesh Ambani":{
+		"born" : "19 April 1957",
+		"nationality" : "Indian",
+		"occupation" : "Chairman",
+		"company" : "Reliance",
+		"news":{
+			"article":{
+				"date":"Some date",
+				"facts" : "The facts"
+			}
+		}
+	}
+} 

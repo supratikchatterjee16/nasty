@@ -1,0 +1,31 @@
+Anil Ambani is an Indian Businessman.
+He is the chairman of Reliance Group (also known as Reliance ADA Group), which came into existence in June 2005 following a demerger from Reliance Industries Limited.
+
+Anil Ambani, is, Indian.
+Anil Ambani, is, Businessman.
+Anil Ambani, is chairman, Reliance Group.
+Reliance Group, existence, June 2005.
+Reliance Group, demerged from, Reliance Group.
+
+When creating a sentence from the triplets above, the sets that may be generated from the first case can be.
+
+Anil Ambani is an Indian.(Best case)
+Anil Ambani is an Indian citizen.
+Anil Ambani is a citizen of India.
+.
+.
+.
+
+The second sentence might be formed as :
+
+Anil Ambani is a businessman.
+Anil Ambani has a business.
+Anil Ambani owns a business.
+Anil Ambani's occupation is a businessman.
+.
+.
+.
+
+So on and so forth.
+
+The sets to be generated would be obtained from such triplets.

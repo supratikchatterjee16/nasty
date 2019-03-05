@@ -38,4 +38,4 @@ class CSV:
 			writer = csv.writer(csvfile)
 			writer.writerow(self.data)
 
-print("Imported csv_util module")
+print("csv_util imported")

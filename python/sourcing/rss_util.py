@@ -28,3 +28,5 @@ class RSS():
 		#print(rss.url+" : "+rss.feed.get("updated"))
 	#except:
 		#print("Could not be fetched")
+		
+print("rss_util imported")

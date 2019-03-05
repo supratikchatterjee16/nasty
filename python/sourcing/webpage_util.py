@@ -36,4 +36,4 @@ def select_links(url, pattern):
 			arr.append(element)
 	return arr
 
-print("imported webpage_util succesfully")
+print("webpage_util imported")

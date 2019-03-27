@@ -1,0 +1,7 @@
+[server] Server ready for connections.
+[server] Connection made to : Socket[addr=/127.0.0.1,port=45770,localport=8001] Sun Mar 10 17:03:49 IST 2019
+[server] Transmission complete
+[server] Connection made to : Socket[addr=/127.0.0.1,port=45772,localport=8001] Sun Mar 10 17:03:51 IST 2019
+[server] Transmission complete
+[server] Connection made to : Socket[addr=/127.0.0.1,port=45774,localport=8001] Sun Mar 10 17:03:52 IST 2019
+[server] Command recieved : exit

@@ -6,11 +6,14 @@ def get_article(url):
 	soup = bs(page.content, 'html.parser')
 	pat = re.compile(r'^[A-Z]+.*[.!?]$', re.M)
 	temp_list = []
+	string = ""
 	for text in soup.body.stripped_strings:
 		arr = pat.findall(text)
 		if len(arr) != 0:
 			temp_list = temp_list + arr
-	return temp_list
+			for elements in arr:
+				string = string + elements+" "
+	return string
 
 def get_content(url):
 	page = requests.get(url)

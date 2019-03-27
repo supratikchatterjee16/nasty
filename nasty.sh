@@ -24,20 +24,12 @@ while true; do
 	if [ $ctr = 0 ]; then
 		echo "Sourcing completed"
 		echo "Starting anlysis module"
+		java -mx4g -cp "./*.jar:../corenlp/*" factserver.Driver
 		python3 test.py
 		ctr=$?
 		clear
 		if [ $ctr = 0 ]; then
-			echo -n "Analysis completed"
-			echo "Starting loading module"
-			python3 test.py
-			ctr=$?
-			clear
-			if [ $ctr = 0 ]; then
-				echo -n "Succesfully completed"
-				clear
-			fi
-		fi
+			echo 
 	elif [ $ctr = 1 ]; then
 		echo "Program error detected. Exiting execution"
 		exit

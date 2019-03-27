@@ -7,39 +7,51 @@ import threading
 import sys
 import os
 import datetime
+import json
 
 rsslist = []
 rsslist_updates = []
 links = []
 link_updates = []
-
+count = 0
+store = {}
 def init():
 	global rsslist, rsslist_updates, links, link_updates
-	rsslist = csv_util.CSV(filename = "rsslist.csv", create = False)
+	rsslist = csv_util.CSV(filename = "customlist.csv", create = False)
 	rsslist_updates = csv_util.CSV(filename = "rsslist_updates.csv", create = True)
 	links = csv_util.CSV(filename = "links.csv", create = True)
 	link_updates = csv_util.CSV(filename = "link_updates.csv", create = True)
 
+def mutex_for_store(count, content):
+	try:
+		store[count] = content
+	except Exception:
+		mutex_for_store(count, content)
+
 def routine(*arr):
-	directory = "./data/"
-	if not os.path.exists(directory):
-		os.makedirs(directory)
-	now = datetime.datetime.now()
-	now = now.strftime("%Y-%m-%d_%H_%M")
+	global count
+	global store
 	for i in arr:
 		print(i)
-		rss = rss_util.RSS(i)
-		fp = open("./data/"+now,"a+")
-		for j in rss.items:
-			content = j["title"]+"\n"
-			content += str( webpage_util.get_article(j["link"]))
-			content += "\n\n\n"
-			fp.write(content)
-		print(i+" done")
-		fp.close()
+		try:
+			rss = rss_util.RSS(i)
+			content = {}
+			for j in rss.items:
+				content["title"] = j["title"]
+				content["date"] = j["published"]
+				content["link"] = j["link"]
+				content["article"]= str( webpage_util.get_article(j["link"]))
+				mutex_for_store(count,content)
+				count += 1
+			#print(store.keys())
+			print(i+" done. "+str(count)+" records generated.")
+		except Exception as e:
+			print(e)
 
 def mainprocess():
 	global rsslist
+	global store
+	start = str(datetime.datetime.now())
 	#Generate 5 threads
 	num = 5
 	length = len(rsslist.data)/num
@@ -57,12 +69,21 @@ def mainprocess():
 	for i in threads:
 		i.join()
 	
+	directory = "./data/"
+	if not os.path.exists(directory):
+		os.makedirs(directory)
+	now = datetime.datetime.now()
+	now = now.strftime("%Y-%m-%d_%H_%M")
+	with open(directory+now,"w+") as df:
+		json.dump(store,df)
+	
 	#for i in range(num):
 		#ls.append(rsslist.data[i:i+1])
 	#for source in rsslist:
 		#rss = rss_util.RSS(url = source)
 		#for i in rss.items:
 			#print(i["link"])
+	print("Started at : "+start)
 	print("Completed at : "+str(datetime.datetime.now()))
 
 

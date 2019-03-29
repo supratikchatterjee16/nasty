@@ -9,8 +9,11 @@ def get_all_triples(text):
 	server = socket.socket()
 	server.connect((host,port))
 	msg = "parse "+text
+	print("Sending message")
 	server.send(msg.encode())
+	print("Sent message")
 	msg = server.recv(1024).decode()
+	print("message recieved")
 	print(str(msg))
 	return msg
 

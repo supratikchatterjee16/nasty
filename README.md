@@ -46,3 +46,15 @@ python3 ./python/analysis/analyzer.py
 ```
 4. Make use of MongoDB to check results
 5. There exists a mockup of one of the three major use cases of this project at: [NASTY UI](https://github.com/supratikchatterjee16/nastyui)
+
+## Testing
+
+1. Sourcing module run
+![Image for sourcing test](working/sourcing_rss.png?raw=True "Sourcing module run")
+
+2. Analysis module run
+![Image for analysis test](working/analysis.png?raw=True "Analysis module run")
+
+3. MongoDB view of acquired data
+![Image of MongoDB compass displaying entities](working/entities.png?raw=True "MongoDB Compass showing the data")
+

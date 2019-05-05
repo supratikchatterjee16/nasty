@@ -60,7 +60,7 @@ def parse_and_store(dic, triples):
 		#print(result.inserted_id)
 
 def get_all_triples(text):
-	host = "192.168.0.14"
+	host = "192.168.0.17"
 	port = 8001
 	server = socket.socket()
 	server.connect((host,port))
@@ -83,11 +83,14 @@ def main_routine():
 			print(str(len(db))+" records found. Starting fact finding.")
 			#print(db['3']['article'])
 			for i in range(len(db)):
-				article = db[str(i)]['article']
-				print("Current record : "+str(i))
-				triples = get_all_triples(article)
-				triples = triples.replace(",", ", ")
-				parse_and_store(db[str(i)], triples)
+				try:
+					article = db[str(i)]['article']
+					print("Current record : "+str(i))
+					triples = get_all_triples(article)
+					triples = triples.replace(",", ", ")
+					parse_and_store(db[str(i)], triples)
+				except Exception as e:
+					print(e)
 	print("Process started at : "+start)
 	print("Process finished at : "+datetime.datetime.now())
 

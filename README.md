@@ -50,11 +50,14 @@ python3 ./python/analysis/analyzer.py
 ## Testing
 
 1. Sourcing module run
+
 ![Image for sourcing test](working/sourcing_rss.png?raw=True "Sourcing module run")
 
 2. Analysis module run
+
 ![Image for analysis test](working/analysis.png?raw=True "Analysis module run")
 
 3. MongoDB view of acquired data
+
 ![Image of MongoDB compass displaying entities](working/entities.png?raw=True "MongoDB Compass showing the data")
 

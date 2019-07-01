@@ -61,3 +61,6 @@ python3 ./python/analysis/analyzer.py
 
 ![Image of MongoDB compass displaying entities](working/entities.png?raw=True "MongoDB Compass showing the data")
 
+## Current Status
+The project is halted for creation of a better NER API, that will be brought about in the NLP repository.
+The reason for this primarily is the lack of accuracy in the Stanford NER model. Can look forward to some serious upgrades to the project after that.
